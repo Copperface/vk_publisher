@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='css/style.css'>
+    <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/tokenClass.js"></script>
+    <script src="js/postClass.js"></script>
+    <script src="js/main.js"></script>    
+</head>
+
+<body>
+    <p>Перейдите по ссылке, авторизуйтесь, скопируйте адрес из строки и вставьте в окошко на этой странице</p>
+    <a class='auth-button fine-button fail' href='https://oauth.vk.com/authorize?client_id=6780918&display=page&scope=wall,offline&response_type=token&v=5.92&redirect_uri=https://oauth.vk.com/blank.html&state=ok' target='_blank'>Авторизуйтесь</a>
+    <a class='read-button fine-button success' href='#' onclick='readToken()'>Ввести ссылку</a>
+
+    <div class="input hide">
+        <label>Текст сообщения<br>
+            <textarea class='message'></textarea>
+        </label><br>
+        <label>Ссылки на медиа<br>
+            <textarea class='media'></textarea>
+        </label><br>
+        <label>Группы<br>
+            <textarea class='targets'></textarea>
+        </label><br>
+        <input type='submit' onclick='sendPost()'>
+    </div>
+    <input type='submit' onclick='auth()'>
+</body>
+
+</html>

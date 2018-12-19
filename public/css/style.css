@@ -1,0 +1,46 @@
+.fine-button {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.success {
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+}
+
+.success:hover {
+    background: rgb(53, 167, 110);
+}
+
+.success:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+}
+
+.fail {
+    background: red;
+    box-shadow: 0 -3px #ca0303 inset;
+}
+
+.fail:hover {
+    background: #ca0303;
+}
+
+.fail:active {
+    background: #ca0303;
+    box-shadow: 0 3px #ca0303 inset;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.hide {
+    display: none;
+}
