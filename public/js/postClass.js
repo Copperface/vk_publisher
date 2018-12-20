@@ -1,7 +1,13 @@
-function postClass(messageClass, mediaClass, targetsClass) {
-    this.message = $(messageClass).val();
-    this.media = _parseMediaURL($(mediaClass).val());
-    this.targets = $(targetsClass).val().split('\n');
+function postClass() {
+    let _message = () => {
+        return $('.message').val();
+    };
+    let _media = () => {
+        return _parseMediaURL($('.media').val());
+    };
+    let _targets = () => {
+        return $('.targets').val().split('\n');
+    };
 
 
     function _parseMediaURL(input) {
@@ -14,5 +20,41 @@ function postClass(messageClass, mediaClass, targetsClass) {
             };
         }
         return _arrURL;
+    }
+
+    this.sendPost = async function () {
+        let _data = {
+            message: _message(),
+            media: _media(),
+            targets: _targets()
+        };
+        let _result = {};
+        let i = 0;
+        let timerId = await setTimeout(async function next() {
+            let _response = await $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    method: 'wall.post',
+                    data: {
+                        owner_id: '-' + _data.targets[i],
+                        message: _data.message,
+                        attachments: _data.media.join(),
+                        access_token: token.value(),
+                        v: v
+                    }
+
+                }
+            });
+            _result[_data.targets[i]] = !!_response.response.post_id;
+            i++;
+            if (i < _data.targets.length) {
+                timerId = await setTimeout(next, 500);
+            } else {
+                alert(JSON.stringify(_result, null, ' '));
+            }
+        }, 500);
+
     }
 }

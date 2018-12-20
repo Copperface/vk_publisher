@@ -4,11 +4,6 @@
 <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href='css/style.css'>
-    <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/tokenClass.js"></script>
-    <script src="js/postClass.js"></script>
-    <script src="js/main.js"></script>    
 </head>
 
 <body>
@@ -26,9 +21,12 @@
         <label>Группы<br>
             <textarea class='targets'></textarea>
         </label><br>
-        <input type='submit' onclick='sendPost()'>
+        <input type='submit' onclick='post.sendPost()'>
     </div>
-    <input type='submit' onclick='auth()'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/tokenClass.js"></script>
+    <script src="js/postClass.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
